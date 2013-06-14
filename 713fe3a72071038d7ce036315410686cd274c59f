@@ -16,6 +16,23 @@
       "revId": "713fe3a72071038d7ce036315410686cd274c59f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "iHbVtEE",
+        "filename": "src/com/android/providers/calendar/CalendarProvider2.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2013-06-14T11:51:41Z",
+      "side": 1,
+      "message": "Why not check this before doing the actual query instead of doing the work just to throw it away?",
+      "revId": "713fe3a72071038d7ce036315410686cd274c59f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
