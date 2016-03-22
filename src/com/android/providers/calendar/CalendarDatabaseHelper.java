@@ -78,6 +78,7 @@ import java.util.TimeZone;
 
     private static final int PRE_FROYO_SYNC_STATE_VERSION = 3;
 
+
     // columns used to duplicate an event row
     private static final String LAST_SYNCED_EVENT_COLUMNS =
             Events._SYNC_ID + "," +
@@ -152,6 +153,7 @@ import java.util.TimeZone;
         public static final String SYNC_STATE = "_sync_state";
         public static final String SYNC_STATE_META = "_sync_state_metadata";
         public static final String COLORS = "Colors";
+        public static final String WEEK_START_DAY = "week_start_day";
     }
 
     public interface Views {
@@ -260,6 +262,8 @@ import java.util.TimeZone;
     private DatabaseUtils.InsertHelper mCalendarAlertsInserter;
     private DatabaseUtils.InsertHelper mExtendedPropertiesInserter;
 
+    private final String START_DAY = "start_day";
+    private final String _id = "_id";
     public long calendarsInsert(ContentValues values) {
         return mCalendarsInserter.insert(values);
     }
@@ -493,6 +497,9 @@ import java.util.TimeZone;
                 + " (" +
                 CalendarContract.ExtendedProperties.EVENT_ID +
                 ");");
+
+        db.execSQL("CREATE TABLE " + Tables.WEEK_START_DAY + "(" + _id
+                + " INTEGER PRIMARY KEY," + START_DAY + " TEXT" + ");");
 
         createEventsView(db);
 
