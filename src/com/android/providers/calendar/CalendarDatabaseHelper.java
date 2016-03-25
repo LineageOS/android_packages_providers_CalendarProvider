@@ -3375,12 +3375,20 @@ import java.util.TimeZone;
      */
     protected void duplicateEvent(final long id) {
         final SQLiteDatabase db = getWritableDatabase();
-        final long canPartiallyUpdate = DatabaseUtils.longForQuery(db, "SELECT "
-                + Calendars.CAN_PARTIALLY_UPDATE + " FROM " + Views.EVENTS
-                + " WHERE " + Events._ID + " = ?", new String[]{
-                String.valueOf(id)
-        });
-        if (canPartiallyUpdate == 0) {
+        try {
+            final long canPartiallyUpdate = DatabaseUtils.longForQuery(db,
+                    "SELECT " + Calendars.CAN_PARTIALLY_UPDATE + " FROM "
+                            + Views.EVENTS + " WHERE " + Events._ID + " = ?",
+                    new String[] { String.valueOf(id) });
+            if (canPartiallyUpdate == 0) {
+                return;
+            }
+        } catch (SQLiteDoneException e) {
+            if (db == null) {
+                Log.v(TAG, "db is null");
+                return;
+            }
+            Log.v(TAG, "db open:" + db.isOpen() + "and id = " + id);
             return;
         }
 
