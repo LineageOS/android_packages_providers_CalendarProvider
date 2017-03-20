@@ -23,6 +23,7 @@
   <!-- Event count message for secret calendar info -->
   <!-- Event and dirty event count message for secret calendar info -->
   <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
+  <string name="provider_label">Calendariu</string>
   <!-- Debug tool - dialog - delete file now [CHAR LIMIT=NONE] -->
   <!-- Debug tool - dialog - start copying [CHAR LIMIT=NONE] -->
   <!-- Debug tool - Main message shown to the user when starting up the debug tool [CHAR LIMIT=NONE] -->
