@@ -15,20 +15,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Title for the Calendar Storage process. -->
-  <!-- Temporary Calendar name to use before we have the calendar name from the server -->
-  <!-- Caption on secret calendar info -->
-  <!-- Error message for secret calendar info -->
-  <string name="calendar_info_error">Eraro</string>
-  <!-- No calendars message for secret calendar info -->
-  <!-- Event count message for secret calendar info -->
-  <string name="calendar_info_events">Eventoj: <xliff:g id="events">%1$d</xliff:g></string>
-  <!-- Event and dirty event count message for secret calendar info -->
-  <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
-  <!-- Debug tool - dialog - delete file now [CHAR LIMIT=NONE] -->
-  <!-- Debug tool - dialog - start copying [CHAR LIMIT=NONE] -->
-  <!-- Debug tool - Main message shown to the user when starting up the debug tool [CHAR LIMIT=NONE] -->
-  <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
-  <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
-  <!-- Debug tool - email body [CHAR LIMIT=NONE] -->
+    <!-- Title for the Calendar Storage process. -->
+    <!-- Temporary Calendar name to use before we have the calendar name from the server -->
+    <!-- Caption on secret calendar info -->
+    <!-- Error message for secret calendar info -->
+    <string name="calendar_info_error">Eraro</string>
+    <!-- No calendars message for secret calendar info -->
+    <!-- Event count message for secret calendar info -->
+    <string name="calendar_info_events">Eventoj: <xliff:g id="events">%1$d</xliff:g></string>
+    <!-- Event and dirty event count message for secret calendar info -->
+    <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
+    <!-- Debug tool - dialog - delete file now [CHAR LIMIT=NONE] -->
+    <!-- Debug tool - dialog - start copying [CHAR LIMIT=NONE] -->
+    <!-- Debug tool - Main message shown to the user when starting up the debug tool [CHAR LIMIT=NONE] -->
+    <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
+    <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
+    <!-- Debug tool - email body [CHAR LIMIT=NONE] -->
 </resources>
