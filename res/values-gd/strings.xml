@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="calendar_storage">Stòras a’ mhìosachain</string>
-    <string name="calendar_default_name">Tùsail</string>
+    <string name="calendar_default_name">Bun-roghainn</string>
     <string name="calendar_info">Fiosrachadh a’ mhìosachain</string>
     <string name="calendar_info_error">Mearachd</string>
     <string name="calendar_info_no_calendars">Chan eil mìosachan ann</string>
