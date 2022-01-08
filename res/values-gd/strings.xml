@@ -14,18 +14,32 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the Calendar Storage process. -->
     <string name="calendar_storage">Stòras a’ mhìosachain</string>
+    <!-- Temporary Calendar name to use before we have the calendar name from the server -->
     <string name="calendar_default_name">Bun-roghainn</string>
+    <!-- Caption on secret calendar info -->
     <string name="calendar_info">Fiosrachadh a’ mhìosachain</string>
+    <!-- Error message for secret calendar info -->
     <string name="calendar_info_error">Mearachd</string>
+    <!-- No calendars message for secret calendar info -->
     <string name="calendar_info_no_calendars">Chan eil mìosachan ann</string>
+    <!-- Event count message for secret calendar info -->
     <string name="calendar_info_events">Tachartasan: <xliff:g id="events">%1$d</xliff:g></string>
+    <!-- Event and dirty event count message for secret calendar info -->
     <string name="calendar_info_events_dirty">Tachartasan: <xliff:g id="events">%1$d</xliff:g>, Gun sàbhaladh: <xliff:g id="dirty events">%2$d</xliff:g></string>
+    <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
     <string name="provider_label">Mìosachan</string>
+    <!-- Debug tool - dialog - delete file now [CHAR LIMIT=NONE] -->
     <string name="debug_tool_delete_button">Sguab às an-dràsta</string>
+    <!-- Debug tool - dialog - start copying [CHAR LIMIT=NONE] -->
     <string name="debug_tool_start_button">Tòisich</string>
+    <!-- Debug tool - Main message shown to the user when starting up the debug tool [CHAR LIMIT=NONE] -->
     <string name="debug_tool_message">Cuiridh tu 1) lethbhreac de stòr-dàta a’ mhìosachain agad dhan chairt SD/stòras USB a ghabhas leughadh le aplacaid sam bith agus 2) post-d leis. Cùm an aire gun sguab thu às an lethbhreac nuair a bhios tu air an lethbhreac a chur air uidheam eile no air am post-d fhaighinn.</string>
+    <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
     <string name="debug_tool_email_sender_picker">Tagh prògram gus am faidhle agad a chur</string>
+    <!-- Debug tool - email subject [CHAR LIMIT=NONE] -->
     <string name="debug_tool_email_subject">Stòr-dàta mìosachain</string>
+    <!-- Debug tool - email body [CHAR LIMIT=NONE] -->
     <string name="debug_tool_email_body">Tha stòr-dàta a’ mhìosachain agam an cois seo le geallaidhean na h-uarach agus fiosrachadh pearsanta eile ’na bhroinn. Bi faiceallach leis.</string>
 </resources>
