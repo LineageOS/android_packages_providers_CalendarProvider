@@ -27,5 +27,5 @@
     <string name="debug_tool_message">Tas a piques de 1) facer una copia de la base de datos de Calendariu na tarxeta SD/almacenamientu USB, lleíble por cualesquier aplicación, y 2) d\'unviala per corréu electrónicu. Acuérdate de desaniciar la copia namás que la copies fuera del preséu o se reciba\'l mensaxe de corréu electrónicu.</string>
     <string name="debug_tool_email_sender_picker">Escueyi un programa pa unviar el ficheru</string>
     <string name="debug_tool_email_subject">Base de datos de Calendariu</string>
-    <string name="debug_tool_email_body">Axunto la mio base de datos de Calendariu que contién toles mios cites ya información personal. Remánala con curiáu.</string>
+    <string name="debug_tool_email_body">Axunto la mio base de datos de Calendariu que contién toles mios cites y tola mio información personal. Remánala con curiáu.</string>
 </resources>
