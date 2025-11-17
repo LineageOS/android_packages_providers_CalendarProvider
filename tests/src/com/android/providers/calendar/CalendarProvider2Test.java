@@ -3631,6 +3631,30 @@ public class CalendarProvider2Test extends AndroidTestCase {
         cleanupEnterpriseTestForCalendars(1);
     }
 
+    /**
+     *  Verifies that updating an event with a null STATUS does not cause a crash
+     */
+    public void testUpdateEventWhenEventStatusNull() {
+        mCalendarId = insertCal("Calendar0", DEFAULT_TIMEZONE);
+        final EventInfo event = new EventInfo("normal0",
+                "2008-05-01T00:00:00",
+                "2008-05-01T20:00:00",
+                false);
+
+        final Uri eventUri = insertEvent(mCalendarId, event);
+        final long eventId = ContentUris.parseId(eventUri);
+
+        ContentValues cv = eventInfoToContentValues(mCalendarId, event);
+        cv.putNull(Events.STATUS);
+
+        try {
+            mResolver.update(ContentUris.withAppendedId(Events.CONTENT_URI, eventId), cv, null,
+                    null);
+        } catch (NullPointerException nullPointerException) {
+            fail("NullPointerException thrown when updating event with eventStatus is null");
+        }
+    }
+
     // Remove the two inserted calendars.
     private void cleanupEnterpriseTestForCalendars(int numToDelete) {
         final int numDeleted =  mWorkProfileProvider.delete(Calendars.CONTENT_URI, null, null);

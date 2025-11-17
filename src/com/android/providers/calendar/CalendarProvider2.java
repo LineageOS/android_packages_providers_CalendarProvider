@@ -91,6 +91,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
@@ -2101,15 +2102,14 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                  * If this is the first event in the series, we can just update the existing
                  * event with the values.
                  */
-                boolean canceling = (values.getAsInteger(Events.STATUS) == Events.STATUS_CANCELED);
-
                 if (originalInstanceTime.equals(values.getAsLong(Events.DTSTART))) {
                     /*
                      * Update fields in the existing event.  Rather than use the merged data
                      * from the cursor, we just do the update with the new value set after
                      * removing the ORIGINAL_INSTANCE_TIME entry.
                      */
-                    if (canceling) {
+                    if (Objects.equals(values.getAsInteger(Events.STATUS),
+                            Events.STATUS_CANCELED)) {
                         // TODO: should we just call deleteEventInternal?
                         Log.d(TAG, "Note: canceling entire event via exception call");
                     }
@@ -2389,7 +2389,8 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                 if (!values.containsKey(Events.DTSTART)) {
                     if (values.containsKey(Events.ORIGINAL_SYNC_ID)
                             && values.containsKey(Events.ORIGINAL_INSTANCE_TIME)
-                            && Events.STATUS_CANCELED == values.getAsInteger(Events.STATUS)) {
+                            && Objects.equals(values.getAsInteger(Events.STATUS),
+                            Events.STATUS_CANCELED)) {
                         // event is a canceled instance of a recurring event, it doesn't these
                         // values but lets fake some to satisfy curious consumers.
                         final long origStart = values.getAsLong(Events.ORIGINAL_INSTANCE_TIME);
@@ -3969,9 +3970,7 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
     // See bug #3218104
     private boolean doesStatusCancelUpdateMeanUpdate(ContentValues values,
             ContentValues modValues) {
-        boolean isStatusCanceled = modValues.containsKey(Events.STATUS) &&
-                (modValues.getAsInteger(Events.STATUS) == Events.STATUS_CANCELED);
-        if (isStatusCanceled) {
+        if (Objects.equals(modValues.getAsInteger(Events.STATUS), Events.STATUS_CANCELED)) {
             String originalSyncId = values.getAsString(Events.ORIGINAL_SYNC_ID);
 
             if (!TextUtils.isEmpty(originalSyncId)) {
@@ -4192,9 +4191,9 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                             modValues.containsKey(Events.STATUS)) {
                         // If this is a cancellation knock it out
                         // of the instances table
-                        if (modValues.containsKey(Events.STATUS) &&
-                                modValues.getAsInteger(Events.STATUS) == Events.STATUS_CANCELED) {
-                            String[] args = new String[] {String.valueOf(id)};
+                        if (Objects.equals(modValues.getAsInteger(Events.STATUS),
+                                Events.STATUS_CANCELED)) {
+                            String[] args = new String[]{String.valueOf(id)};
                             mDb.delete(Tables.INSTANCES, SQL_WHERE_EVENT_ID, args);
                         }
 
