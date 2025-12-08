@@ -616,11 +616,9 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
                 // Nothing actionable here anyways.
             }
             mPostInitializeWorkRunning = false;
-            if (Flags.deferPostInitializeWork()) {
-                if (mPendingScheduledAlarmsRemoval) {
-                    mPendingScheduledAlarmsRemoval = false;
-                    CalendarReceiver.removeScheduledAlarms(mContentResolver);
-                }
+            if (mPendingScheduledAlarmsRemoval) {
+                mPendingScheduledAlarmsRemoval = false;
+                CalendarReceiver.removeScheduledAlarms(mContentResolver);
             }
         }
     }
@@ -2330,8 +2328,7 @@ public class CalendarProvider2 extends SQLiteContentProvider implements OnAccoun
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        if (Flags.deferPostInitializeWork()
-                && uri.equals(CalendarAlarmManager.SCHEDULE_ALARM_REMOVE_URI)) {
+        if (uri.equals(CalendarAlarmManager.SCHEDULE_ALARM_REMOVE_URI)) {
             if (mPostInitializeWorkRunning) {
                 mPendingScheduledAlarmsRemoval = true;
                 return 0;
